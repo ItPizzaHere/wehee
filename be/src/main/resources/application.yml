@@ -7,8 +7,17 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
     properties:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
+
+wehee:
+  chat:
+    relay:
+      host: localhost
+      port: 61613
+    stomp:
+      username: ${STOMP_USERNAME}
+      password: ${STOMP_PASSWORD}

@@ -1,3 +1,17 @@
-.App {
-  
+@font-face {
+    font-family: Pretendard-Black;
+    src: url(./styles/Pretendard-Black.woff) format("woff");;
+}
+@font-face {
+    font-family: Pretendard-SemiBold;
+    src: url(./styles/Pretendard-SemiBold.woff) format("woff");;
+}
+@font-face {
+    font-family: Pretendard-Regular;
+    src: url(./styles/Pretendard-Regular.woff) format("woff");;
+}
+
+* {
+  font-family: Pretendard-Regular;
+  font-size: 1.05rem;
 }

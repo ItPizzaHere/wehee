@@ -8,7 +8,7 @@ interface ButtonBasicProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-function ButtonBasic({ label, variant, color, onClick}: ButtonBasicProps) {
+function ButtonBasic({label, variant, color, onClick}: ButtonBasicProps) {
   return (
     <Button
       variant={variant}

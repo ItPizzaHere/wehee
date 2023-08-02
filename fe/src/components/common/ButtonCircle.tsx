@@ -7,7 +7,7 @@ interface ButtonCircleProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-function ButtonCircle({ icon, color, onClick}: ButtonCircleProps) {
+function ButtonCircle({icon, color, onClick}: ButtonCircleProps) {
   return (
     <Fab
       color={color}

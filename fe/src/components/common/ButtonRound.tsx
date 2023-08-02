@@ -7,7 +7,7 @@ interface ButtonRoundProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-function ButtonRound({ label, color, onClick}: ButtonRoundProps) {
+function ButtonRound({label, color, onClick}: ButtonRoundProps) {
   return (
     <Fab
       variant='extended'

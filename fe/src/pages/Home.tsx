@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AfterLogin() {
+function Home() {
   return (
     <div>
       <h1>Hello, User!</h1>
@@ -9,4 +9,4 @@ function AfterLogin() {
   );
 }
 
-export default AfterLogin;
+export default Home;

@@ -3,7 +3,7 @@ import Fab from '@mui/material/Fab';
 
 interface ButtonRoundProps {
   label: string;
-  color?: 'primary' | 'secondary';
+  color?: 'primary' | 'secondary' | 'info';
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 

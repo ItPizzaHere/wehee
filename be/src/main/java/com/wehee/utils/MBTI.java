@@ -1,7 +1,6 @@
 package com.wehee.utils;
 
 public enum MBTI {
-
     INTJ,
     INTP,
     ENTJ,
@@ -18,5 +17,4 @@ public enum MBTI {
     ISFP,
     ESTP,
     ESFP;
-
 }

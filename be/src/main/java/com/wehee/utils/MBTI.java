@@ -1,20 +1,20 @@
 package com.wehee.utils;
 
 public enum MBTI {
-    INTJ,
-    INTP,
-    ENTJ,
-    ENTP,
-    INFJ,
-    INFP,
-    ENFJ,
-    ENFP,
-    ISTJ,
-    ISFJ,
-    ESTJ,
-    ESFJ,
-    ISTP,
-    ISFP,
-    ESTP,
-    ESFP;
+    ENFJ, 
+    ENFP, 
+    ENTJ, 
+    ENTP, 
+    ESFJ, 
+    ESFP, 
+    ESTJ, 
+    ESTP, 
+    INFJ, 
+    INFP, 
+    INTJ, 
+    INTP, 
+    ISFJ, 
+    ISFP, 
+    ISTJ, 
+    ISTP;
 }

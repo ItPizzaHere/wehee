@@ -1,9 +1,9 @@
 import React from 'react';
 import HeaderBeforeLogin from 'components/header/HeaderBeforeLogin';
 
-function Info() {
+function Main() {
 
-  const infoStyle = {
+  const MainStyle = {
     backgroundColor: '#A498ED',
     height: '100vh',
     display: 'flex',
@@ -12,7 +12,7 @@ function Info() {
   }
 
   return (
-    <div style={infoStyle}>
+    <div style={MainStyle}>
       <HeaderBeforeLogin />
       <h1>Welcome to Wehee!</h1>
       {/* 로그인 폼 등 필요한 내용 작성 */}
@@ -20,4 +20,4 @@ function Info() {
   );
 }
 
-export default Info;
+export default Main;

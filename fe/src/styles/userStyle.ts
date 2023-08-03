@@ -12,13 +12,13 @@ const backgroundStyle: React.CSSProperties = {
 const svgWStyle: React.CSSProperties = {
   position: 'absolute',
   bottom: 0,
-  left: '96px',
+  left: '80px',
 };
 
 const svgHStyle: React.CSSProperties = {
   position: 'absolute',
-  top: '48px',
-  right: '96px',
+  top: '24px',
+  right: '80px',
 };
 
 

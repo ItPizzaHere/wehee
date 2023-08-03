@@ -1,5 +1,5 @@
 import React from 'react';
-import LayoutBeforeLogin from 'components/layout/LayoutBeforeLogin';
+import HeaderBeforeLogin from 'components/header/HeaderBeforeLogin';
 
 function Main() {
 
@@ -13,10 +13,9 @@ function Main() {
 
   return (
     <div style={MainStyle}>
-      <LayoutBeforeLogin>
-        <h1>Welcome to Wehee!</h1>
-        {/* 로그인 폼 등 필요한 내용 작성 */}
-      </LayoutBeforeLogin>
+      <HeaderBeforeLogin />
+      <h1>Welcome to Wehee!</h1>
+      {/* 로그인 폼 등 필요한 내용 작성 */}
     </div>
   );
 }

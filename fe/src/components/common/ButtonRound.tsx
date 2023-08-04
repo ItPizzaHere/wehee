@@ -14,7 +14,7 @@ function ButtonRound({label, color, onClick}: ButtonRoundProps) {
       color={color}
       onClick={onClick}
       size='large'
-      >
+    >
       {label}
     </Fab>
   );

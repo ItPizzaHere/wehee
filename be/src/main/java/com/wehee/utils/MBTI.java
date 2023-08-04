@@ -1,7 +1,7 @@
 package com.wehee.utils;
 
 public enum MBTI {
-    ENFJ, 
+    ENFJ,
     ENFP, 
     ENTJ, 
     ENTP, 

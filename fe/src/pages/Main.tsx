@@ -1,23 +1,3 @@
-import React from 'react';
-import HeaderBeforeLogin from 'components/header/HeaderBeforeLogin';
-
-function Main() {
-
-  const MainStyle = {
-    backgroundColor: '#A498ED',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-
-  return (
-    <div style={MainStyle}>
-      <HeaderBeforeLogin />
-      <h1>Welcome to Wehee!</h1>
-      {/* 로그인 폼 등 필요한 내용 작성 */}
-    </div>
-  );
-}
-
-export default Main;
+version https://git-lfs.github.com/spec/v1
+oid sha256:fe29d2b1b563e56ef972af4207ace8db9488d78c487cb2cc94070b2c51954071
+size 1089

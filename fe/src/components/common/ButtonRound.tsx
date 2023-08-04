@@ -1,23 +1,3 @@
-import React from 'react';
-import Fab from '@mui/material/Fab';
-
-interface ButtonRoundProps {
-  label: string;
-  color?: 'primary' | 'secondary' | 'info';
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
-}
-
-function ButtonRound({label, color, onClick}: ButtonRoundProps) {
-  return (
-    <Fab
-      variant='extended'
-      color={color}
-      onClick={onClick}
-      size='large'
-    >
-      {label}
-    </Fab>
-  );
-}
-
-export default ButtonRound;
+version https://git-lfs.github.com/spec/v1
+oid sha256:5cafde14a6656ee399e79f4ddce1d868aab9c1c55d28001628ad34f44e504d5f
+size 609

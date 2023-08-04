@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7b89de0b8b664b644358d314d1b753699925fa76f1974dad62b9755676960393
-size 2351
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+jwt:
+  secret:${JWT_SECTRET}
+
+wehee:
+  chat:
+    relay:
+      host: localhost
+      port: 61613
+    stomp:
+      username: ${STOMP_USERNAME}
+      password: ${STOMP_PASSWORD}

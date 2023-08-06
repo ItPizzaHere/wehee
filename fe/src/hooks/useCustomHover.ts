@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useCustomHover = () => {
+const useCustomHover = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -11,5 +11,11 @@ export const useCustomHover = () => {
     setIsHovered(false);
   };
 
-  return { isHovered, handleMouseEnter, handleMouseLeave };
+  return {
+    isHovered,
+    handleMouseEnter,
+    handleMouseLeave
+  };
 };
+
+export default useCustomHover;

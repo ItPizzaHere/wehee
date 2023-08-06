@@ -5,7 +5,7 @@ interface ButtonBasicProps {
   label: string;
   variant: 'contained' | 'outlined' ;
   color?: 'primary' | 'secondary';
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 function ButtonBasic({label, variant, color, onClick}: ButtonBasicProps) {

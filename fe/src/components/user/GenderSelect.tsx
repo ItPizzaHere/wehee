@@ -5,8 +5,8 @@ function GenderSelect() {
   return (
     <Box>
       <RadioGroup row>
-        <FormControlLabel value="female" control={<Radio />} label="여" />
         <FormControlLabel value="male" control={<Radio />} label="남" />
+        <FormControlLabel value="female" control={<Radio />} label="여" />
       </RadioGroup>
     </Box>
   );

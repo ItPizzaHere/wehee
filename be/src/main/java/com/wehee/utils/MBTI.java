@@ -16,5 +16,6 @@ public enum MBTI {
     ISFJ, 
     ISFP, 
     ISTJ, 
-    ISTP;
+    ISTP,
+    NONE;
 }

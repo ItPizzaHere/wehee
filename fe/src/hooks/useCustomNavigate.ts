@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-export function useCustomNavigate() {
+const useCustomNavigate = () => {
   const navigate = useNavigate();
 
   const handleMainNavigate = () => {
@@ -20,4 +20,6 @@ export function useCustomNavigate() {
     handleLoginNavigate,
     handleJoinNavigate,
   };
-}
+};
+
+export default useCustomNavigate;

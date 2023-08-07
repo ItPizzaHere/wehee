@@ -5,8 +5,7 @@ function Home() {
   return (
     <div>
       <LayoutAfterLogin>
-        <h1>Hello, User!</h1>
-        {/* 로그인 후 보여줄 내용 작성 */}
+        <h1> Hello, User </h1>
       </LayoutAfterLogin>
     </div>
   );

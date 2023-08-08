@@ -1,17 +1,3 @@
-package com.wehee.domain.user.service;
-
-import com.wehee.domain.user.entity.User;
-import com.wehee.domain.user.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-@Service
-@RequiredArgsConstructor
-public class UserService {
-
-    private final UserRepository userRepository;
-
-    public User getUser(int userId) {
-        return userRepository.findByUserId(userId);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:8f7422ea4dcd51a813443794e74677f465e02617bf865592562c89f667f0f27b
+size 3252

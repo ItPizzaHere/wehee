@@ -1,16 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import loginReducer from './loginSlice';
 import authRedcer from './authSlice';
+import userReducer from './userSlice'
 import mbtiReducer from './mbtiSlice'
 
-export type RootState = ReturnType<typeof store.getState>;
 
 const store = configureStore({
   reducer: {
-    login: loginReducer,
     auth: authRedcer,
+    user: userReducer,
     mbti: mbtiReducer,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
 
 export default store;

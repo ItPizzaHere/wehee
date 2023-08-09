@@ -1,14 +1,3 @@
-import LayoutAfterLogin from 'components/layout/LayoutAfterLogin';
-import React from 'react';
-
-function Board() {
-  return (
-    <div>
-      <LayoutAfterLogin>
-        <h1> Hello, Board </h1>
-      </LayoutAfterLogin>
-    </div>
-  );
-}
-
-export default Board;
+version https://git-lfs.github.com/spec/v1
+oid sha256:4149874c09766f4ba58bc4732319ed701743bbdc66f33b5c02095671128d55d3
+size 1047

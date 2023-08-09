@@ -9,5 +9,5 @@ public class UserInfoRequestDto {
     private String nickname;
     private String mbti;
     private String gender;
-    private Integer birth;
+    private int birth;
 }

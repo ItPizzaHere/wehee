@@ -1,19 +1,22 @@
 package com.wehee.api.lounge.dto;
 
 public class LikeRequest {
-    private int userId;
     private int postId;
+    private boolean liked;
 
-    public LikeRequest(int userId, int postId) {
-        this.userId = userId;
-        this.postId = postId;
+    public LikeRequest() {
     }
 
-    public int getUserId() {
-        return userId;
+    public LikeRequest(int postId, boolean liked) {
+        this.postId = postId;
+        this.liked = liked;
     }
 
     public int getPostId() {
         return postId;
+    }
+
+    public boolean isLiked() {
+        return liked;
     }
 }

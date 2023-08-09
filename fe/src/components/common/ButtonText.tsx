@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 interface ButtonTextProps {
   label: string;
   color?: string;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 function ButtonText({label, color = '#303030', onClick}: ButtonTextProps) {

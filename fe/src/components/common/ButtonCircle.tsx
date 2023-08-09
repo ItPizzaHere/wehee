@@ -4,7 +4,7 @@ import Fab from '@mui/material/Fab';
 interface ButtonCircleProps {
   icon: React.ReactNode;
   color?: 'primary' | 'secondary';
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 function ButtonCircle({icon, color, onClick}: ButtonCircleProps) {

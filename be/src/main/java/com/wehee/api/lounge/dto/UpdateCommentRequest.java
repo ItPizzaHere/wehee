@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4d95fc69bdb95d597b8c5c8f601b3de8a99b5cc798c837154de0155053541d35
-size 522
+package com.wehee.api.lounge.dto;
+
+public class UpdateCommentRequest {
+    private int commentId;
+    private String content;
+
+    public UpdateCommentRequest() {
+    }
+
+    public UpdateCommentRequest(int commentId, String content) {
+        this.commentId = commentId;
+        this.content = content;
+    }
+
+    public int getCommentId() {
+        return commentId;
+    }
+
+    public String getContent() {
+        return content;
+    }
+}

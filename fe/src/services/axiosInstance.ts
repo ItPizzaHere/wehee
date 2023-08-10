@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:752fb9f978883910fedf2454017af5947bde822a940e030480d0b428ef1c02d6
-size 740
+import axios  from 'axios'; // AxiosInstance 타입 추가
+import Cookies from 'js-cookie';
+
+const axiosInstance = () => {
+  const accessToken = Cookies.get('accessToken');
+
+  const instance = axios.create({
+    baseURL: 'http://localhost:8080',
+    timeout: 10000,
+    withCredentials: true,
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+    },
+  });
+
+  return instance;
+};
+
+export default axiosInstance;

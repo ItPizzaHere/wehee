@@ -1,22 +1,3 @@
-package com.wehee.api.lounge.dto;
-
-public class LoungeResponse {
-    private int state;
-    private String message;
-
-    public LoungeResponse() {
-    }
-
-    public LoungeResponse(int state, String message) {
-        this.state = state;
-        this.message = message;
-    }
-
-    public int getState() {
-        return state;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:3e78d23ed453288d334f5ab669557182722bcbfbff2f02c48b6bad8c9c3bf95a
+size 524

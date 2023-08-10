@@ -5,7 +5,7 @@ export interface BoardMenuState {
 }
 
 const initialState: BoardMenuState = {
-  selectedMenu: '우리집', // 초기 선택 메뉴 값을 지정
+  selectedMenu: 'home', // 초기 선택 메뉴 값을 지정
 };
 
 const boardMenuSlice = createSlice({

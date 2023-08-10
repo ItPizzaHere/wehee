@@ -1,8 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+export interface BoardMenuState {
+  selectedMenu: string;
+}
+
+const initialState: BoardMenuState = {
+  selectedMenu: '우리집', // 초기 선택 메뉴 값을 지정
+};
+
 const boardMenuSlice = createSlice({
   name: 'boardMenu',
-  initialState: { selectedMenu: '우리집' },
+  initialState,
   reducers: {
     setSelectedMenu: (state, action) => {
       state.selectedMenu = action.payload;

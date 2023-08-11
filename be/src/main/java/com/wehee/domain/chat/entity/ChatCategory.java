@@ -6,13 +6,14 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ChatCategory {
-    CRUSH("CRUSH", "짝사랑"),
-    SOME("SOME", "썸"),
-    ROMANTIC_RELATIONSHIP("ROMANTIC_RELATIONSHIP", "연애"),
-    BREAK_UP("BREAK_UP", "이별"),
-    REUNION("REUNION", "재회"),
-    NONE("NONE", "없음");
+    CRUSH("crush", "짝사랑"),
+    SOME("some", "썸"),
+    ROMANTIC_RELATIONSHIP("rel", "연애"),
+    BREAK_UP("break", "이별"),
+    REUNION("reunion", "재회"),
+    NONE("none", "없음");
 
+    @Getter
     private final String code;
     private final String displayName;
 }

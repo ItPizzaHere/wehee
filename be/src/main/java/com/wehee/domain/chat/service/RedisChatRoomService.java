@@ -1,18 +1,3 @@
-package com.wehee.domain.chat.service;
-
-import com.wehee.domain.chat.entity.ChatRoom;
-import com.wehee.domain.chat.repository.ChatRoomRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-@Service
-@RequiredArgsConstructor
-public class RedisChatRoomService implements ChatRoomService {
-
-    private final ChatRoomRepository chatRoomRepository;
-
-    @Override
-    public ChatRoom save(ChatRoom chatRoom) {
-        return chatRoomRepository.save(chatRoom);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:cd210b2898ba8465298aec449fb1152e369e58d061eb1e80d5382ffad83bc701
+size 3892

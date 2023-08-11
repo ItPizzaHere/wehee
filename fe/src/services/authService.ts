@@ -1,23 +1,3 @@
-import axios from 'axios';
-
-const BE_URL = 'http://localhost:8080';
-const authService = axios.create({
-  baseURL: BE_URL,
-  timeout: 10000,
-});
-
-const login = async (providerId: string, redirectUri: string) => {
-  try {
-    const response = await authService.get(`/oauth2/authorization/${providerId}`, {
-      params: { redirect_uri: redirectUri },
-    });
-
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
-
-export { login };
-
-export default authService;
+version https://git-lfs.github.com/spec/v1
+oid sha256:6ed14b50b39037ecc3665a0b94247da098451f6dd0ce719db8fa3fb58d364359
+size 1074

@@ -1,5 +1,5 @@
-import LayoutAfterLogin from 'components/layout/LayoutAfterLogin';
 import React from 'react';
+import LayoutAfterLogin from 'components/layout/LayoutAfterLogin';
 
 function Chat() {
   return (

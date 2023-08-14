@@ -1,23 +1,3 @@
-import React from 'react';
-import Button from '@mui/material/Button';
-
-interface ButtonBasicProps {
-  label: string;
-  variant: 'contained' | 'outlined' ;
-  color?: 'primary' | 'secondary';
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
-
-function ButtonBasic({label, variant, color, onClick}: ButtonBasicProps) {
-  return (
-    <Button
-      variant={variant}
-      color={color}
-      onClick={onClick}
-    >
-      {label}
-    </Button>
-  );
-}
-
-export default ButtonBasic;
+version https://git-lfs.github.com/spec/v1
+oid sha256:93d011907cae8bccaa4e7db502595c9d0172ee1960bbf059afc6f43847ba4f17
+size 617

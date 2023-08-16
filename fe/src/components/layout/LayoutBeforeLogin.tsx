@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderBeforeLogin from './HeaderBeforeLogin';
+import HeaderBeforeLogin from 'components/layout/HeaderBeforeLogin';
 
 interface LayoutBeforeLoginProps {
   children: React.ReactNode;

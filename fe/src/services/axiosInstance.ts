@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 
 const axiosInstance = () => {
   const accessToken = Cookies.get('accessToken');
+  console.log(accessToken);
 
   const instance = axios.create({
     baseURL: 'http://localhost:8080',

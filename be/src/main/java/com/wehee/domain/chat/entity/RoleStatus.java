@@ -10,4 +10,8 @@ public enum RoleStatus {
     public static boolean isParticipating(RoleStatus roleStatus) {
         return roleStatus.equals(OWNER) || roleStatus.equals(MEMBER);
     }
+
+    public static boolean isOutcasted(UserTag userTag) {
+        return userTag.getRoleStatus().equals(OUTCAST);
+    }
 }

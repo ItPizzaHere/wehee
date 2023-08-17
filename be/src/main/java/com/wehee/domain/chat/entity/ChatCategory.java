@@ -1,19 +1,3 @@
-package com.wehee.domain.chat.entity;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
-@Getter
-@AllArgsConstructor
-public enum ChatCategory {
-    CRUSH("crush", "짝사랑"),
-    SOME("some", "썸"),
-    ROMANTIC_RELATIONSHIP("rel", "연애"),
-    BREAK_UP("break", "이별"),
-    REUNION("reunion", "재회"),
-    NONE("none", "없음");
-
-    @Getter
-    private final String code;
-    private final String displayName;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a4437ac25d454ce50db794756e411d2dcd368184511d242061ed57467d15c11b
+size 677

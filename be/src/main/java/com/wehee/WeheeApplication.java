@@ -1,13 +1,3 @@
-package com.wehee;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class WeheeApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(WeheeApplication.class, args);
-	}
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:23841e2923dc072666eb8586da73f88dacc09d9551a79ef7573a8394adbdcee2
+size 637

@@ -1,3 +1,64 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bfad72ea0c80d8ea5f20648c420222cb523b8d569db47ac85a7ab7eef00800e2
-size 2144
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.2'
+	id 'io.spring.dependency-management' version '1.1.2'
+}
+
+group = 'com.wehee'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	/* Spring Boot */
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'io.openvidu:openvidu-java-client:2.28.0'
+	implementation 'io.openvidu:openvidu-parent:2.0.0'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-security:3.1.0'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.security:spring-security-config:6.0.1'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+	/* Tool */
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+	implementation 'me.paulschwarz:spring-dotenv:4.0.0'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+
+	/* Database */
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis:3.1.2'
+
+	/* JWT */
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+	/* Chatting */
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+	implementation 'org.springframework.boot:spring-boot-starter-reactor-netty'
+	implementation 'org.springframework:spring-messaging:6.0.11'
+	implementation 'org.springframework.security:spring-security-messaging:6.1.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

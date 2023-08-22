@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:de298ee5b859eafb8e9255a1db6c4516eff0e5bff70f36ae2431e1d0ae768d00
-size 536
+package com.wehee.domain.chat.repository;
+
+import com.wehee.domain.chat.entity.InstantMessage;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+public interface MessageRepository extends JpaRepository<InstantMessage, Long> {
+
+    @Query("select m from InstantMessage m where m.chatRoom.id = :id order by m.timestamp asc")
+    List<InstantMessage> findByChatRoomId(@Param("id") Long id);
+}

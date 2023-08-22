@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:77d760936631579cb6a0a525f0e70a1d32e3a30ba3ad08d8a9b08740fb3fdbbf
-size 1037
+package com.wehee.api.chat.dto;
+
+import com.wehee.domain.chat.entity.ChatRoom;
+import com.wehee.domain.user.entity.UserProfile;
+import java.util.List;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class MyChatRoomResponseDto {
+
+    private Long id;
+    private String title;
+    private String category;
+    private String announcement;
+    private List<UserProfile> users;
+    private int joined;
+    private int limit;
+
+    public static MyChatRoomResponseDto from(ChatRoom chatRoom) {
+        return new MyChatRoomResponseDto(
+                chatRoom.getId(),
+                chatRoom.getTitle(),
+                chatRoom.getCategory().getDisplayName(),
+                chatRoom.getAnnouncement(),
+                chatRoom.describeJoinedUser(),
+                chatRoom.getJoinedUserNumber(),
+                chatRoom.getLimit()
+        );
+    }
+}

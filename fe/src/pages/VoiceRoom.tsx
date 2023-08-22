@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1d24c13f21c84356887deabf41c93d9225913d40bbb71f0a821d17e2ba755b91
-size 794
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Container} from '@mui/material';
+import LayoutAfterLogin from 'components/layout/LayoutAfterLogin';
+import VoiceRoomHome from 'components/voiceroom/VoiceRoomHome';
+import VoiceRoomView from 'components/voiceroom/VoiceRoomView';
+import VoiceRoomEnd from 'components/voiceroom/VoiceRoomEnd';
+import VoiceRoomViewHost from 'components/voiceroom/VoiceRoomViewHost';
+
+function VoiceRoom() {
+  return (
+    <div>
+      <LayoutAfterLogin>
+        <Container maxWidth="lg">
+          <Routes>
+            <Route path="/*" element={<VoiceRoomHome />} />
+            <Route path="/view" element={<VoiceRoomView />} />
+            <Route path="/onair" element={<VoiceRoomViewHost />} />
+            <Route path="/end" element={<VoiceRoomEnd />} />
+          </Routes>
+        </Container>
+      </LayoutAfterLogin>
+    </div>
+  );
+}
+
+export default VoiceRoom;

@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1f51266e54373b6df987f2390864bb9ef19bfb4615da043440d34341a8e1b054
-size 1046
+package com.wehee.config.properties;
+
+import java.util.ArrayList;
+import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@Getter
+@Component
+@ConfigurationProperties(prefix = "app")
+public class AppProperties {
+
+    private final Auth auth = new Auth();
+    private final OAuth2 oauth2 = new OAuth2();
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Auth {
+        private String tokenSecret;
+        private long tokenExpiry;
+        private long refreshTokenExpiry;
+    }
+
+    @Getter
+    public static final class OAuth2 {
+        private List<String> authorizedRedirectUris = new ArrayList<>();
+
+        public OAuth2 authorizedRedirectUris(List<String> authorizedRedirectUris) {
+            this.authorizedRedirectUris = authorizedRedirectUris;
+            return this;
+        }
+    }
+
+}

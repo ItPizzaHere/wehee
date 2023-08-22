@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b69472fdbd1693fae13c27155c1793338b3637da821c74c74a1be49bfe0a0ec8
-size 602
+package com.wehee.utils;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+public class HeaderUtil {
+
+    private final static String HEADER_AUTHORIZATION = "Authorization";
+    private final static String TOKEN_PREFIX = "Bearer ";
+
+    public static String getAccessToken(HttpServletRequest request) {
+        String headerValue = request.getHeader(HEADER_AUTHORIZATION);
+
+        if (headerValue == null) {
+            return null;
+        }
+
+        if (headerValue.startsWith(TOKEN_PREFIX)) {
+            return headerValue.substring(TOKEN_PREFIX.length());
+        }
+
+        return null;
+    }
+}

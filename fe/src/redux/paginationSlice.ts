@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ae968781e6ef0e20feef74326a230080e58a1b1dc79ad829fd6e2c70335b7282
-size 562
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+const initialState = {
+  currentPage: 1,
+  totalPages: 1
+};
+
+const paginationSlice = createSlice({
+  name: 'pagination',
+  initialState,
+  reducers: {
+    setCurrentPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
+    },
+    setTotalPages: (state, action: PayloadAction<number>) => {
+      state.totalPages = action.payload;
+    }
+  }
+});
+
+export const { setCurrentPage, setTotalPages } = paginationSlice.actions;
+
+export default paginationSlice.reducer;

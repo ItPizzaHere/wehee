@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dace36346e69d8398a8862dec66c57ab64591c0f8630e6f2c10fe3233d2f49bf
-size 726
+package com.wehee.domain.voice.repository;
+
+import com.wehee.domain.voice.entity.VoiceRoom;
+import com.wehee.domain.voice.entity.VoiceUserTag;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+public interface VoiceRoomRepository extends JpaRepository<VoiceRoom, Long> {
+
+    @Query("select c from VoiceRoom c where c.id = :id")
+    Optional<VoiceRoom> findById(@Param("id") Long id);
+
+    @Query("select c from VoiceRoom c where (c.title LIKE %:keyword%) order by c.created desc")
+    List<VoiceRoom> findByKeyword(@Param("keyword") String keyword);
+}

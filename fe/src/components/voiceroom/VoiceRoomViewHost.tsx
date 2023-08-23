@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
 import useCustomNavigate from '../../hooks/useCustomNavigate';
 import { Stack, Box, Container, Typography, Divider } from '@mui/material';
-import { MicRounded, CloseRounded, Check, HeadsetRounded, SettingsVoice } from '@mui/icons-material';
+import { MicRounded, CloseRounded, AddTaskRounded, HeadsetRounded, Edit, MicOffRounded } from '@mui/icons-material';
 import VoiceRoomSpeakerList from 'components/voiceroom/VoiceRoomSpeakerList';
 import VoiceRoomListenerList from './VoiceRoomListenerList';
 import ModalUpdateVoiceRoom from './ModalUpdateVoiceRoom';
@@ -11,21 +11,22 @@ import { RoomTitle, ChatListContent, RoomContentTitle } from 'styles/fontStyle';
 import { scrollStyle } from 'styles/scroll';
 import ModalRequest from './ModalRequest';
 
-const samplePersons = [
-  { profile: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVekg-NaMhcWiwngZgWkwX0fIU1cqdL8F4bw&usqp=CAU', nickname: '이히히히힛 #ESTP', status: '' },
+function VoiceRoomViewHost() {
+  const user = useSelector((state: RootState) => state.user);
+  const voiceroom = useSelector((state: RootState) => state.voiceroom)
 
-];
-
-function VoiceRoomView() {
   const sampleListeners = [
-    { profile: '', nickname: '사용자1', status: '😊' },
-    { profile: '', nickname: '사용자2', status: '' },
-    { profile: '', nickname: '사용자3', status: '' },
-    { profile: '', nickname: '사용자4', status: '💜' },
-    { profile: '', nickname: '사용자5', status: '' },
+    { profile: '', nickname: '청취자1 #INFP', status: '' },
+    { profile: '', nickname: '박사님 #ISTJ', status: '' },
+    { profile: '', nickname: '포카칩햇감자 #ESTP', status: '' },
+    { profile: '', nickname: '닉네임임 #INTP', status: '' },
+    { profile: '', nickname: '왜지감자 #ISTP', status: '' },
+    { profile: '', nickname: '엥뿌삐 #ENFP', status: '' },
+    { profile: '', nickname: '전좋아요 #ESFP', status: '' },
+    { profile: '', nickname: '지나가는나그네 #ISFP', status: '' },
+    { profile: '', nickname: '킹 #ENFP', status: '' },
   ];
 
-  const voiceRoom = useSelector((state: RootState) => state.voiceroom);
   const { handleVoiceRoomEndNavigate } = useCustomNavigate();
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -39,7 +40,7 @@ function VoiceRoomView() {
   const handleCloseEditModal = () => {
     setIsEditModalOpen(false);
   };
-
+  
   const handleOpenReqModal = () => {
     setIsReqModalOpen(true);
   };
@@ -61,11 +62,11 @@ function VoiceRoomView() {
       <Stack spacing={4} sx={{ paddingTop: 4, paddingBottom: 10 }}>
         <Stack direction="row" spacing="auto" alignItems="center" sx={{ paddingY: 1.5 }}>
           <Stack direction="row" spacing={2} alignItems="center">
-            <Typography style={RoomTitle}>ISTJ랑 짝사랑부터 연애까지 썰 푼다</Typography>
+            <Typography style={RoomTitle}>{voiceroom.title}</Typography>
             <Stack direction="row" spacing={1} alignItems="center">
-              <Typography style={{ fontSize: '1.15rem', color: '#716FDC' }}>현재 7명 참여중</Typography>
+              <Typography style={{ fontSize: '1.15rem', color: '#716FDC' }}>현재 2명 참여중</Typography>
               <Typography style={{ fontSize: '1.15rem', color: '#716FDC' }}>|</Typography>
-              <Typography style={ChatListContent}>07:42에 시작</Typography>
+              <Typography style={ChatListContent}>{voiceroom.startTime}에 시작</Typography>
             </Stack>
           </Stack>
           <Stack
@@ -80,7 +81,7 @@ function VoiceRoomView() {
             onClick={handleEndVocieroom}
           >
             <CloseRounded style={{ fontSize: '1.5rem', color: '#FF4545' }} />
-            <Typography style={{ fontSize: '1.15rem', color: '#FF4545' }}>나가기</Typography>
+            <Typography style={{ fontSize: '1.15rem', color: '#FF4545' }}>종료</Typography>
           </Stack>
         </Stack>
         <Stack spacing={2}>
@@ -89,7 +90,7 @@ function VoiceRoomView() {
               <MicRounded style={{ fontSize: '1.5rem', color: '#303030', }} />
               <Typography style={RoomContentTitle}>발표자</Typography>
             </Stack>
-            {/* <Stack direction="row" spacing={1} alignItems="center"
+            <Stack direction="row" spacing={1} alignItems="center"
               sx={{
                 paddingX: 2, paddingY: 1.5, borderRadius: 100,
                 cursor: 'pointer', '&:hover': { backgroundColor: 'rgba(96, 96, 96, 0.1)' }
@@ -98,10 +99,10 @@ function VoiceRoomView() {
             >
               <AddTaskRounded style={{ fontSize: '1.5rem', color: '#606060' }} />
               <Typography style={{ fontSize: '1.15rem', color: '#606060' }}>요청 보기</Typography>
-            </Stack> */}
+            </Stack>
           </Stack>
           <Container>
-            <VoiceRoomSpeakerList people={samplePersons} />
+            <VoiceRoomSpeakerList people={[{ profile: user.profile, nickname: user.nickname, status: '' }]} />
           </Container>
         </Stack>
         <Stack spacing={2}>
@@ -110,11 +111,11 @@ function VoiceRoomView() {
             <Typography style={RoomContentTitle}>청취자</Typography>
           </Stack>
           <Container sx={{ ...scrollStyle, height: "480px", overflowY: "auto" }}>
-            <VoiceRoomListenerList people={sampleListeners} />
+            <VoiceRoomListenerList people={sampleListeners} hide={true} />
           </Container>
         </Stack>
         <Stack direction="row" spacing="auto">
-          {/* <Stack spacing={1} alignItems="center">
+          <Stack spacing={1} alignItems="center">
             <Box
               width={72} height={72}
               sx={{
@@ -126,7 +127,7 @@ function VoiceRoomView() {
               <Edit style={{ color: "#606060" }} sx={{ width: 48, height: 48 }} />
             </Box>
             <Typography style={ChatListContent}>정보 수정</Typography>
-          </Stack> */}
+          </Stack>
           <Stack spacing={1} alignItems="center">
             <Box
               width={72} height={72}
@@ -136,12 +137,9 @@ function VoiceRoomView() {
               }}
               onClick={handleMuteToggle}
             >
-              {mute ?
-                <SettingsVoice style={{ color: "#716FDC" }} sx={{ width: 48, height: 48 }} />
-                : <Check style={{ color: "#446AF0" }} sx={{ width: 48, height: 48 }} />
-              }
+              <MicOffRounded style={{ color: mute ? "#606060" : "#716FDC" }} sx={{ width: 48, height: 48 }} />
             </Box>
-            <Typography style={ChatListContent}>{mute ? "요청하기" : "요청보냄"}</Typography>
+            <Typography style={ChatListContent}>{mute ? "마이크없음" : "음소거 해제"}</Typography>
           </Stack>
           <Stack
             direction="row" alignItems="center" spacing={4}
@@ -180,4 +178,4 @@ function VoiceRoomView() {
   );
 }
 
-export default VoiceRoomView;
+export default VoiceRoomViewHost;

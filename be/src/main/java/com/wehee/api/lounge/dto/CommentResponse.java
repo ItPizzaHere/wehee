@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3a092b4a508d4df1988e10ca040df23ad21995109857292e3893dda7d1d2f0d9
-size 663
+package com.wehee.api.lounge.dto;
+
+import java.util.List;
+
+public class CommentResponse {
+    private int state;
+    private List<CommentDto> commentList;
+    private String message;
+
+    public CommentResponse() {
+    }
+
+    public CommentResponse(String message) {
+        this.state=-1;
+        this.message = message;
+    }
+
+    public CommentResponse(List<CommentDto> commentList) {
+        this.state = 1;
+        this.commentList = commentList;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public List<CommentDto> getCommentList() {
+        return commentList;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+}

@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:67e394ec6bd6ee2b20d3dca31f6f6b99db13500447aa6b4ca9716dfab4fb1db4
-size 781
+package com.wehee.domain.auth.exception;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.AuthenticationEntryPoint;
+
+public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
+
+    @Override
+    public void commence(HttpServletRequest request, HttpServletResponse response,
+        AuthenticationException authException) throws IOException, ServletException {
+        authException.printStackTrace();
+        response.sendError(
+            HttpServletResponse.SC_UNAUTHORIZED,
+            authException.getLocalizedMessage());
+    }
+}

@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f67b42caa6389f779b21402dd15b8c769b05bbe37a765a7aaae8d313499e2ab4
-size 986
+package com.wehee.domain.chat.utils;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wehee.utils.MBTI;
+import jakarta.persistence.AttributeConverter;
+import java.io.IOException;
+import java.util.List;
+
+public class TargetMbtisConverter implements AttributeConverter<List<MBTI>, String> {
+
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    @Override
+    public String convertToDatabaseColumn(List<MBTI> attribute) {
+        try {
+            return objectMapper.writeValueAsString(attribute);
+        } catch (JsonProcessingException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public List<MBTI> convertToEntityAttribute(String dbData) {
+        try {
+            return objectMapper.readValue(dbData, new TypeReference<List<MBTI>>() {});
+        } catch (IOException e) {
+            return null;
+        }
+    }
+}

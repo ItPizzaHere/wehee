@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2890f8eb7fc4c840bc91b98cddc81a7262678ad4cd78cebaa45d537b403b1dd3
-size 786
+package com.wehee.domain.chat.utils;
+
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
+public class TimeUtil {
+
+    public static String convert(Date now, Date timestamp) {
+        long diff = Math.abs(now.getTime() - timestamp.getTime());
+
+        long min = TimeUnit.MINUTES.convert(diff, TimeUnit.MILLISECONDS);
+        if (min < 1) {
+            return "방금";
+        }
+
+        long hour = TimeUnit.HOURS.convert(diff, TimeUnit.MILLISECONDS);
+        if (hour < 1) {
+            return String.format("%d분 전", (int) min);
+        }
+
+        long day = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+        if (day < 1) {
+            return String.format("%d시간 전", (int) hour);
+        }
+
+        return String.format("%d일 전", (int) day);
+    }
+}

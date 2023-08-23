@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eeb645177f622ec60ee02e2596cc1019e865109f59a3a52a8f1a636fd3eb43e4
-size 625
+import React from 'react';
+import Button from '@mui/material/Button';
+
+interface ButtonHasIconProps {
+  icon: React.ReactNode;
+  label: string;
+  variant: 'contained' | 'outlined' ;
+  color?: 'primary' | 'secondary';
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
+}
+
+function ButtonHasIcon({icon, label, variant, color, onClick, disabled}: ButtonHasIconProps) {
+  return (
+    <Button
+      startIcon={icon}
+      variant={variant}
+      color={color}
+      onClick={onClick}
+      size='large'
+      disabled={disabled}
+      >
+      {label}
+    </Button>
+  );
+}
+
+export default ButtonHasIcon;

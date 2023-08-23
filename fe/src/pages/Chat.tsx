@@ -1,3 +1,63 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:702d42b81146436634cf0e44ee5f6f4bf64fbcf320e86c417c61c8e50325c0b7
-size 1862
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Stack, Box } from '@mui/material';
+import { useMediaQuery, useTheme } from '@mui/material';
+import LayoutAfterLoginHideFooter from 'components/layout/LayoutAfterLoginHideFooter';
+import ChatList from 'components/chat/ChatList';
+import ChatRoom from 'components/chat/ChatRoom';
+import ChatWait from 'components/chat/ChatWait';
+import ChatInfo from 'components/chat/ChatInfo';
+
+function Chat() {
+  const theme = useTheme();
+  const isMdScreen = useMediaQuery(theme.breakpoints.up('md'));
+  
+  return (
+    <div>
+      <LayoutAfterLoginHideFooter>
+        <Box maxWidth="xl">
+          <Routes>
+            <Route path="/" element={isMdScreen ? (
+              <Stack direction="row">
+                <Box width="40%">
+                  <ChatList />
+                </Box>
+                <Box width="60%">
+                  <ChatWait />
+                </Box>
+              </Stack>
+            ) : (
+              <ChatList />
+            )} />
+            <Route path="/:chatId" element={isMdScreen ? (
+              <Stack direction="row">
+                <Box width="40%">
+                  <ChatList />
+                </Box>
+                <Box width="60%">
+                  <ChatRoom />
+                </Box>
+              </Stack>
+            ) : (
+              <ChatRoom />
+            )} />
+            <Route path="/view/info" element={isMdScreen ? (
+              <Stack direction="row">
+                <Box width="40%">
+                  <ChatList />
+                </Box>
+                <Box width="60%">
+                  <ChatInfo />
+                </Box>
+              </Stack>
+            ) : (
+              <ChatInfo />
+            )} />
+          </Routes>
+        </Box>
+      </LayoutAfterLoginHideFooter>
+    </div >
+  );
+}
+
+export default Chat;

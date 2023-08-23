@@ -1,3 +1,78 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:147f378106c54e238b2f19411b07035283a09a2a54aae2bbcdfa176b7a8f8de5
-size 1708
+import { useDispatch } from 'react-redux';
+import {
+  Person,
+  ChatCreateState,
+  setChatCreate,
+  setOwner,
+  setTitle,
+  setCategory,
+  setLimit,
+  setSelectedMBTI,
+  setGender,
+  setAgeRange,
+  setIsCreateButtonEnabled,
+  resetChatCreate,
+} from 'redux/chatCreateSlice';
+
+function useChatCreateUpdate() {
+  const dispatch = useDispatch();
+
+  const updateChatCreate = (chatCreate: ChatCreateState) => {
+    dispatch(setChatCreate(chatCreate));
+  };
+
+  const updateOwner = (newOwner: Person) => {
+    dispatch(setOwner(newOwner));
+  }
+
+  const updateTitle = (newTitle: string) => {
+    dispatch(setTitle(newTitle));
+  };
+
+  const updateCategory = (newCategory: string) => {
+    dispatch(setCategory(newCategory));
+  };
+
+  const updateLimit = (newLimit: number) => {
+    dispatch(setLimit(newLimit));
+  };
+
+  const updateSelectedMBTI = (newSelectedMBTI: string[]) => {
+    dispatch(setSelectedMBTI(newSelectedMBTI));
+  };
+  
+  const resetSelectedMBTI = () => {
+    dispatch(setSelectedMBTI([]));
+  };
+
+  const updateGender = (newGender: string) => {
+    dispatch(setGender(newGender));
+  };
+
+  const updateAgeRange = (newAgeRange: number[]) => {
+    dispatch(setAgeRange(newAgeRange));
+  };
+
+  const updateIsCreateButtonEnabled = (newIsCreateButtonEnabled: boolean) => {
+    dispatch(setIsCreateButtonEnabled(newIsCreateButtonEnabled));
+  };
+
+  const updateChatCreateInit = () => {
+    dispatch(resetChatCreate());
+  }
+
+  return {
+    updateChatCreate,
+    updateOwner,
+    updateTitle,
+    updateCategory,
+    updateLimit,
+    updateSelectedMBTI, resetSelectedMBTI,
+    updateGender,
+    updateAgeRange,
+    updateIsCreateButtonEnabled,
+    updateChatCreateInit,
+  };
+}
+
+export default useChatCreateUpdate;

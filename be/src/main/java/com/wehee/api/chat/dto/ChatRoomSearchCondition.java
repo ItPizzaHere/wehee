@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:09af88f5b671332faea1cdb172f742db925215dbc2e86b3dad1bd536d90e7585
-size 538
+package com.wehee.api.chat.dto;
+
+import com.wehee.domain.chat.entity.ChatCategory;
+import java.util.List;
+import java.util.stream.Collectors;
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class ChatRoomSearchCondition {
+    String keyword;
+    List<String> category;
+
+    public List<ChatCategory> mapCategories() {
+        if (category == null) {
+            return null;
+        }
+
+        return category.stream()
+            .map(ChatCategory::fromDisplayName)
+            .collect(Collectors.toList());
+    }
+}

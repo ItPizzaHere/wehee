@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:486524fe7a71e42cea204522fbfbb607edbc1c7a8b11cf9b4b6b291e2e2995c0
-size 785
+package com.wehee.api.auth;
+
+import com.wehee.common.ApiResponse;
+import com.wehee.domain.auth.service.AuthService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/v1/auth")
+@RequiredArgsConstructor
+public class AuthController {
+
+    private final AuthService authService;
+
+    @GetMapping("/refresh")
+    public ApiResponse refreshToken(HttpServletRequest request, HttpServletResponse response) {
+        return authService.reissueRefreshToken(request, response);
+    }
+}

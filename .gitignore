@@ -1,3 +1,46 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:809abb117cb3c5b6a71c2ba4ab0cab9ec5703ed54b7807c057bc4f9cc78d3a8f
-size 534
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Environment Variables ###
+.env
+
+### .DS_Store ###
+.DS_Store
+
+### MySQL ###
+**/mysql/

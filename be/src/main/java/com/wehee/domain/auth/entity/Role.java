@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2a3b59d79c5da74e6ba4cec0f2c86da6589fe8799764f304969d78d96fc63b63
-size 1048
+package com.wehee.domain.auth.entity;
+
+import java.util.Arrays;
+import java.util.Collection;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import org.springframework.security.core.GrantedAuthority;
+
+@Getter
+@AllArgsConstructor
+public enum Role {
+    USER("USER", "일반 사용자 권한"),
+    ADMIN("ADMIN", "관리자 권한"),
+    GUEST("GUEST", "게스트 권한");
+
+    private final String code;
+    private final String dispalyName;
+
+    public static Role of(String code) {
+        return Arrays.stream(Role.values())
+                .filter(r -> r.getCode().equals(code))
+                .findAny()
+                .orElse(GUEST);
+    }
+
+    public static boolean isOf(Collection<? extends GrantedAuthority> authorities, Role role) {
+        if (authorities == null) {
+            return false;
+        }
+
+        for (GrantedAuthority grantedAuthority : authorities) {
+            if (role.getCode().equals(grantedAuthority.getAuthority())) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}

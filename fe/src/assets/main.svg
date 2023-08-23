@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:da3493b4177f3eb218af27b5c734174c150afb20553917c2d8ba87cb9325d0bd
-size 1974
+<svg width="361" height="345" viewBox="0 0 361 345" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_422_257)">
+<rect x="294.296" y="33.5706" width="52.0878" height="244.553" rx="26.0439" fill="#DED9FF"/>
+<rect x="151.054" y="180.302" width="48.9106" height="195.329" rx="24.4553" transform="rotate(-90 151.054 180.302)" fill="#DED9FF"/>
+<rect x="151.054" y="9.11533" width="52.0878" height="317.919" rx="26.0439" fill="#DED9FF"/>
+<rect width="51.4791" height="354.615" rx="25.7395" transform="matrix(-0.906998 -0.421134 0.465943 -0.884814 46.6913 336.129)" fill="#CCD7FF"/>
+<rect width="51.4269" height="337.207" rx="25.7134" transform="matrix(-0.898411 -0.439155 0.484859 -0.874592 188.693 338.721)" fill="#CCD7FF"/>
+<rect x="7.81287" y="82.5133" width="52.0878" height="244.553" rx="26.0439" fill="#CCD7FF"/>
+<rect width="51.4791" height="354.615" rx="25.7395" transform="matrix(-0.906998 -0.421134 0.465943 -0.884814 46.6913 336.129)" fill="#CCD7FF"/>
+<rect width="51.4269" height="337.207" rx="25.7134" transform="matrix(-0.898411 -0.439155 0.484859 -0.874592 188.693 338.721)" fill="#CCD7FF"/>
+<rect x="7.81287" y="82.5133" width="52.0878" height="244.553" rx="26.0439" fill="#CCD7FF"/>
+</g>
+<defs>
+<filter id="filter0_d_422_257" x="7.81287" y="9.06613" width="352.571" height="335.044" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="10" dy="10"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.564706 0 0 0 0 0.564706 0 0 0 0 0.564706 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_422_257"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_422_257" result="shape"/>
+</filter>
+</defs>
+</svg>

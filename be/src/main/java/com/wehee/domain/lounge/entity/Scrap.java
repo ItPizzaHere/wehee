@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3a1ee0b50cc59f74528c9e6330ada62f7b49d778533c9e9ef84e73f080dce5bb
-size 775
+package com.wehee.domain.lounge.entity;
+
+import com.wehee.domain.user.entity.User;
+import jakarta.persistence.*;
+
+import lombok.Getter;
+
+@Entity
+@Table(name="scrap")
+@Getter
+public class Scrap {
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int scrapId;
+    @ManyToOne
+    @JoinColumn(name = "scrap_post_id")
+    private Post post;
+    @ManyToOne
+    @JoinColumn(name = "scrap_user_id")
+    private User user;
+
+    public Scrap(Post post, User user) {
+        this.post = post;
+        this.user = user;
+    }
+
+    public Scrap() {
+    }
+
+    @Override
+    public String toString() {
+        return "Scrap{" +
+                "scrapId=" + scrapId +
+                ", post=" + post +
+                ", user=" + user +
+                '}';
+    }
+}

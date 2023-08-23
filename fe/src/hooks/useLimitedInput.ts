@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8575f5580e35ed56430afee46b1060fcb68d342b04a5bdd950a9a4b4cc7c6df8
-size 624
+import { useState, ChangeEvent } from 'react';
+
+const useLimitedInput = (initialValue: string, limit: number) => {
+  const [value, setValue] = useState(initialValue);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    const limitedInput = inputValue.slice(0, limit);
+    setValue(limitedInput);
+  };
+
+  const handleValueChange = (inputValue: string) => {
+    if (inputValue.length <= limit) {
+      setValue(inputValue);
+    }
+  };
+
+  return [value, handleChange, handleValueChange] as const; // 두 개의 핸들러 반환
+};
+
+export default useLimitedInput;

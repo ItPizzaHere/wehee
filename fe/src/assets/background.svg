@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2ae9626fa65ca2c6bbcee8077212bd5443abdce8ecfc863c0b9a4234ffe838f8
-size 998
+<svg width="1920" height="1200" viewBox="0 0 1920 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_558_29)">
+<rect x="212.255" y="1311.32" width="69.4504" height="497.028" rx="34.7252" transform="rotate(-153.689 212.255 1311.32)" fill="#CAB8FF"/>
+<rect x="401.59" y="1315" width="69.4504" height="472.113" rx="34.7252" transform="rotate(-152.5 401.59 1315)" fill="#CAB8FF"/>
+<rect x="160.416" y="951.199" width="69.4504" height="347.252" rx="34.7252" fill="#CAB8FF"/>
+<rect x="1431" y="267.846" width="73.8462" height="369.231" rx="36.9231" transform="rotate(-90 1431 267.846)" fill="#88A2FF"/>
+<rect x="1578.46" y="470.923" width="73.8462" height="276.923" rx="36.9231" transform="rotate(-180 1578.46 470.923)" fill="#88A2FF"/>
+<rect x="1320" y="470.923" width="73.8462" height="480" rx="36.9231" transform="rotate(-90 1320 470.923)" fill="#88A2FF"/>
+</g>
+<defs>
+<clipPath id="clip0_558_29">
+<rect width="1920" height="1200" fill="white"/>
+</clipPath>
+</defs>
+</svg>

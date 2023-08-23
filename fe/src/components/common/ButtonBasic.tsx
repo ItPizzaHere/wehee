@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6b3e9a421657d326fa9a34fefe15ea04abf620e3baa94157a88461398560b9a6
-size 636
+import React from 'react';
+import Button from '@mui/material/Button';
+
+interface ButtonBasicProps {
+  label: string;
+  variant: 'contained' | 'outlined' ;
+  color?: 'primary' | 'secondary';
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
+  size?: 'large';
+  sx?: object;
+  type?: "submit";
+}
+
+function ButtonBasic({label, variant, color, onClick, disabled, size, sx}: ButtonBasicProps) {
+  return (
+    <Button
+      variant={variant}
+      color={color}
+      onClick={onClick}
+      disabled={disabled}
+      size={size}
+      sx={sx}
+    >
+      {label}
+    </Button>
+  );
+}
+
+export default ButtonBasic;

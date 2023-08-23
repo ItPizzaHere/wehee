@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bd4c84749f63329c66ad6844537885bcd1fd170e6a58a9c6584471b0a51bb21d
-size 913
+package com.wehee.api.user.dto;
+
+import com.wehee.domain.user.entity.Gender;
+import com.wehee.domain.user.entity.User;
+import com.wehee.utils.MBTI;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class UserResponseDto {
+
+    private int userId;
+    private String providerId;
+    private String nickname;
+    private String profile;
+    private MBTI mbti;
+    private String birth;
+    private Gender gender;
+
+    public static UserResponseDto from(User user) {
+        return new UserResponseDto(
+            user.getUserId(),
+            user.getProviderId(),
+            user.getNickname(),
+            user.getProfile(),
+            user.getMbti(),
+            user.getBirth(),
+            user.getGender()
+        );
+    }
+}

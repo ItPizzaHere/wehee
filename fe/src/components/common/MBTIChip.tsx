@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e3c04a7b00edcf381e042b928e5f42e808a028d2868ae00b9dd6444eb8bb0cde
-size 631
+import React from 'react';
+import { Chip } from '@mui/material';
+
+interface MBTIChipProps {
+  label: string;
+  selected: boolean;
+  color: string;
+  onClick?: () => void;
+}
+
+function MBTIChip({label, selected, color, onClick}: MBTIChipProps) {
+  return (
+    <Chip
+      label={label}
+      onClick={onClick}
+      variant={selected ? 'filled' : 'outlined'}
+      style={{
+        borderColor: selected ? 'transparent' : color,
+        borderWidth: selected ? 0 : '2px',
+        backgroundColor: selected ? color : 'transparent',
+      }}
+      sx={{ color: selected ? '#FFFFFF' : color }}
+    />
+  );
+};
+
+export default MBTIChip;

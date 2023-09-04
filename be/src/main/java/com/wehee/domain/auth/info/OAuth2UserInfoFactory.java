@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0be817ce7e828f001e3cf3a25007c51ac0d1d0ac5fe83a18b033789d5a773591
-size 759
+package com.wehee.domain.auth.info;
+
+import com.wehee.domain.auth.entity.Provider;
+import com.wehee.domain.auth.info.impl.GoogleOAuth2UserInfo;
+import com.wehee.domain.auth.info.impl.KakaoOAuth2UserInfo;
+import com.wehee.domain.auth.info.impl.NaverOAuth2UserInfo;
+import java.util.Map;
+
+public class OAuth2UserInfoFactory {
+
+    public static OAuth2UserInfo getOAuth2UserInfo(Provider provider, Map<String, Object> attributes) {
+        switch (provider) {
+            case GOOGLE: return new GoogleOAuth2UserInfo(attributes);
+            case NAVER: return new NaverOAuth2UserInfo(attributes);
+            case KAKAO: return new KakaoOAuth2UserInfo(attributes);
+            default: throw new IllegalArgumentException("Invalid Provider");
+        }
+    }
+
+}

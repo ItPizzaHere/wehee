@@ -1,3 +1,66 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:562434d20a253ddeef5aa647887256bf0a5e71f2e83eaea7b94f4b13c290b0ec
-size 1676
+import { useDispatch } from 'react-redux';
+import { UserState, setUser, setUserSign, setUserId, setNickname, setMBTI, setGender, setBirth, setDuplicate, setCanModifyMBTI, setCanModifyGender, setCanModifyBirth, } from 'redux/userSlice';
+
+function useUserUpdate() {
+  const dispatch = useDispatch();
+
+  const updateUser = (originalUser: UserState) => {
+    dispatch(setUser(originalUser));
+  };
+
+  const updateUserSign = (newSign: boolean) => {
+    dispatch(setUserSign(newSign));
+  };
+
+  const updateUserId = (newUserId: number) => {
+    dispatch(setUserId(newUserId));
+  };
+
+  const updateNickname = (newNickname: string) => {
+    dispatch(setNickname(newNickname));
+  };
+
+  const updateMBTI = (newMBTI: string) => {
+    dispatch(setMBTI(newMBTI));
+  };
+
+  const updateGender = (newGender: string) => {
+    dispatch(setGender(newGender));
+  };
+
+  const updateBirth = (newBirth: string) => {
+    dispatch(setBirth(newBirth));
+  };
+
+  const updateDuplicate = (newDuplicate: boolean) => {
+    dispatch(setDuplicate(newDuplicate));
+  };
+
+  const updateCanModifyMBTI = (newCanModifyMBTI: boolean) => {
+    dispatch(setCanModifyMBTI(newCanModifyMBTI));
+  };
+
+  const updateCanModifyGender = (newCanModifyGender: boolean) => {
+    dispatch(setCanModifyGender(newCanModifyGender));
+  };
+
+  const updateCanModifyBirth = (newCanModifyBirth: boolean) => {
+    dispatch(setCanModifyBirth(newCanModifyBirth));
+  };
+
+  return {
+    updateUser,
+    updateUserSign,
+    updateUserId,
+    updateNickname,
+    updateMBTI,
+    updateGender,
+    updateBirth,
+    updateDuplicate,
+    updateCanModifyMBTI,
+    updateCanModifyGender,
+    updateCanModifyBirth,
+  };
+}
+
+export default useUserUpdate;

@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d61f998a2b8717d9a774a9133745dda2f6df07c7f1abe75c5e81dba11a2bb1be
-size 880
+package com.wehee.api.chat.controller;
+
+import com.wehee.api.chat.dto.ChatRoomResponseDto;
+import com.wehee.api.chat.dto.ChatRoomSearchCondition;
+import com.wehee.domain.chat.service.ChatRoomService;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("api/v1/loveonchat")
+@RequiredArgsConstructor
+public class LoveOnChatController {
+
+    private final ChatRoomService chatRoomService;
+
+    @GetMapping
+    public List<ChatRoomResponseDto> searchByCondition(@ModelAttribute ChatRoomSearchCondition condition) {
+        return chatRoomService.findByCategoriesAndKeyword(condition);
+    }
+}

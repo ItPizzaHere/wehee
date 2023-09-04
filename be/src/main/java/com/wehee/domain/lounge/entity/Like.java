@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8f19acf5766a6812df280af14eb7cea980393d996e049b7ca1fed62ce8e60529
-size 767
+package com.wehee.domain.lounge.entity;
+
+import com.wehee.domain.user.entity.User;
+import jakarta.persistence.*;
+
+import lombok.Getter;
+
+@Entity
+@Table(name="`like`")
+@Getter
+public class Like {
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int likeId;
+    @ManyToOne
+    @JoinColumn(name = "like_post_id")
+    private Post post;
+    @ManyToOne
+    @JoinColumn(name = "like_user_id")
+    private User user;
+
+    public Like() {
+    }
+
+    public Like(Post post, User user) {
+        this.post = post;
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Like{" +
+                "likeId=" + likeId +
+                ", post=" + post +
+                ", user=" + user +
+                '}';
+    }
+}

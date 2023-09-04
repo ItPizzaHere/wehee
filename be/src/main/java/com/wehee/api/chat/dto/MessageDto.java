@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:149d65e4d44ad35e79997f5f160aefd6153422667dfc9162c1cfb7af9c00cfdb
-size 849
+package com.wehee.api.chat.dto;
+
+import com.wehee.domain.chat.entity.InstantMessage;
+import com.wehee.domain.user.entity.UserProfile;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class MessageDto {
+
+    private UserProfile userProfile;
+    private String message;
+    private String timestamp;
+
+    public static MessageDto from(InstantMessage message) {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+
+        return new MessageDto(
+            UserProfile.from(message.getUser()),
+            message.getMessage(),
+            format.format(message.getTimestamp())
+        );
+    }
+}

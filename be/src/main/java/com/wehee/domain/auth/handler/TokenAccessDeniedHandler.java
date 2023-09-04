@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dd67c11eb0a80bec99311c0e2f93bf73cf2d3fda39b4eb27118a89d1ac03af32
-size 970
+package com.wehee.domain.auth.handler;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+
+@Component
+@RequiredArgsConstructor
+public class TokenAccessDeniedHandler implements AccessDeniedHandler {
+
+    private final HandlerExceptionResolver handlerExceptionResolver;
+
+    @Override
+    public void handle(HttpServletRequest request, HttpServletResponse response,
+            AccessDeniedException accessDeniedException) throws IOException, ServletException {
+        handlerExceptionResolver.resolveException(request, response, null, accessDeniedException);
+    }
+}

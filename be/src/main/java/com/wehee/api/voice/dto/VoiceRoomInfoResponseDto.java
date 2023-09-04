@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:af336758485dedde07a2774e8650558bfa50c6f72f4330f69f4c7e58695a638f
-size 954
+package com.wehee.api.voice.dto;
+
+import com.wehee.domain.user.entity.UserProfile;
+import com.wehee.domain.voice.entity.VoiceRoom;
+import java.util.List;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class VoiceRoomInfoResponseDto {
+
+    private Long id;
+    private String title;
+    private  String description;
+    private int limit;
+    private List<UserProfile> activateUsers;
+    private int joined;
+
+    public static VoiceRoomInfoResponseDto from(VoiceRoom voiceRoom) {
+        return new VoiceRoomInfoResponseDto(
+            voiceRoom.getId(),
+            voiceRoom.getTitle(),
+            voiceRoom.getDescription(),
+            voiceRoom.getLimit(),
+            voiceRoom.describeJoinedUser(),
+            voiceRoom.getJoinedUserNumber()
+        );
+    }
+}

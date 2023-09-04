@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:704d193f9df16e28d43631d64b6aa54aa983e5be311c6087e353a6856dc756fd
-size 735
+import React from 'react';
+import { Container } from '@mui/material';
+import HeaderAfterLogin from 'components/layout/HeaderAfterLogin';
+import Footer from 'components/layout/Footer';
+
+interface LayoutAfterLoginProps {
+  children?: React.ReactNode;
+}
+
+const layoutStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '100vh',
+};
+
+const layoutContainerStyle: React.CSSProperties = {
+  flex: 1,
+};
+
+function LayoutAfterLogin({ children }: LayoutAfterLoginProps) {
+  return (
+    <div style={layoutStyle}>
+      <HeaderAfterLogin />
+      <Container maxWidth="xl" style={layoutContainerStyle}>
+        {children}
+      </Container>
+      <Footer />
+    </div>
+  );
+}
+
+export default LayoutAfterLogin;

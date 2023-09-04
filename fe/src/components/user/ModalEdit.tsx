@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9ab85e7285f0f9ef84cd5f742ca0336111bc9dc82b1e013c13121c9195a7f0ae
-size 1148
+import React from 'react';
+import ModalWithClose from 'components/common/ModalWithClose';
+import ButtonBasic from 'components/common/ButtonBasic';
+import NicknameField from 'components/user/NicknameField';
+import MBTISelect from 'components/user/MBTISelect';
+import GenderSelect from 'components/user/GenderSelect';
+import BirthField from 'components/user/BirthField';
+
+interface ModalEditProps {
+  isModalOpen: boolean;
+  modalTitle: string | null;
+  modalContent: "nickname" | "mbti" | "gender" | "birth" | null;
+  onClose: () => void;
+  onConfirm: () => void;
+};
+
+function ModalEdit({isModalOpen, modalTitle, modalContent, onClose, onConfirm } : ModalEditProps){
+  return (
+    <ModalWithClose
+      open={isModalOpen}
+      onClose={onClose}
+      title={modalTitle}
+      actions={<ButtonBasic label="수정" variant="contained" color="primary" onClick={onConfirm} />}
+    >
+      {modalContent === "nickname" && <NicknameField />}
+      {modalContent === "mbti" && <MBTISelect />}
+      {modalContent === "gender" && <GenderSelect />}
+      {modalContent === "birth" && <BirthField />}
+    </ModalWithClose>
+  );
+};
+
+export default ModalEdit;
